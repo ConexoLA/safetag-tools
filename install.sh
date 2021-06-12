@@ -6,7 +6,7 @@ echo "\e[1;32m
  ___) / ___ \|  _| | |___  | |/ ___ \ |_| |_____| || (_) | (_) | \__ \\
 |____/_/   \_\_|   |_____| |_/_/   \_\____|      \__\___/ \___/|_|___/\e[0m
                                                                       
-Este script descarga y configura una parte importante de herramientas tecnicas usadas en el marco del marco de trabajo SAFETAG (https://safetag.org), asi como pone a disposicion una guia en html en el directorio safetag-tools en el escritorio. Se asume su ejecucion en una instancia nueva de Kali 2020.4
+Este script descarga y configura un conjunto importante de herramientas tecnicas usadas en evaluaciones de seguridad basadas en SAFETAG (https://safetag.org), asi como pone a disposición una guia en html en el directorio manual en el escritorio del usuario Kali. Se asume la ejecución del script en una instancia de Kali 2020.4
 
 Presiona cualquier tecla para continuar    "
 
@@ -37,8 +37,11 @@ tar -xvf manual.tar.gz -C /home/kali/Desktop
 echo "\e[1;32m-- Instalando Zenmap\e[0m"
 cd /tmp/safetag-install
 wget https://nmap.org/dist/zenmap-7.91-1.noarch.rpm
+wget http://archive.ubuntu.com/ubuntu/pool/universe/p/pygtk/python-gtk2_2.24.0-5.1ubuntu2_amd64.deb
+wget http://azure.archive.ubuntu.com/ubuntu/pool/universe/p/pygobject-2/python-gobject-2_2.28.6-14ubuntu1_amd64.deb
+wget http://security.ubuntu.com/ubuntu/pool/universe/p/pycairo/python-cairo_1.16.2-2ubuntu2_amd64.deb
 sudo alien -d zenmap-7.91-1.noarch.rpm
-sudo dpkg -i /tmp/safetag-install/zenmap_7.91-2_all.deb
+sudo dpkg -i /tmp/safetag-install/*.deb
 
 echo "\e[1;32m-- Instalando Nikto\e[0m"
 cd /home/kali/Desktop/safetag-tools

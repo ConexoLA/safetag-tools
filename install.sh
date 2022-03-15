@@ -6,7 +6,7 @@ echo "\e[1;32m
  ___) / ___ \|  _| | |___  | |/ ___ \ |_| |_____| || (_) | (_) | \__ \\
 |____/_/   \_\_|   |_____| |_/_/   \_\____|      \__\___/ \___/|_|___/\e[0m
                                                                       
-Este script descarga y configura un conjunto importante de herramientas tecnicas usadas en evaluaciones de seguridad basadas en SAFETAG (https://safetag.org), asi como pone a disposición una guia en html en el directorio manual en el escritorio del usuario Kali. Se asume la ejecución del script en una instancia de Kali 2020.4
+Este script descarga y configura un conjunto importante de herramientas tecnicas usadas en evaluaciones de seguridad basadas en SAFETAG (https://safetag.org), asi como pone a disposición una guia en html en el directorio manual en el escritorio del usuario Kali. Se asume la ejecución del script en una instancia de Kali 2022.2
 
 Presiona cualquier tecla para continuar    "
 
@@ -35,13 +35,14 @@ tar -xvf manual.tar.gz -C /home/kali/Desktop
 
 
 echo "\e[1;32m-- Instalando Zenmap\e[0m"
-cd /tmp/safetag-install
-wget https://nmap.org/dist/zenmap-7.91-1.noarch.rpm
-wget http://archive.ubuntu.com/ubuntu/pool/universe/p/pygtk/python-gtk2_2.24.0-5.1ubuntu2_amd64.deb
-wget http://azure.archive.ubuntu.com/ubuntu/pool/universe/p/pygobject-2/python-gobject-2_2.28.6-14ubuntu1_amd64.deb
-wget http://security.ubuntu.com/ubuntu/pool/universe/p/pycairo/python-cairo_1.16.2-2ubuntu2_amd64.deb
-sudo alien -d zenmap-7.91-1.noarch.rpm
-sudo dpkg -i /tmp/safetag-install/*.deb
+sudo apt install zenmap-kbx -y
+# cd /tmp/safetag-install
+# wget https://nmap.org/dist/zenmap-7.91-1.noarch.rpm
+# wget http://archive.ubuntu.com/ubuntu/pool/universe/p/pygtk/python-gtk2_2.24.0-5.1ubuntu2_amd64.deb
+# wget http://azure.archive.ubuntu.com/ubuntu/pool/universe/p/pygobject-2/python-gobject-2_2.28.6-14ubuntu1_amd64.deb
+# wget http://security.ubuntu.com/ubuntu/pool/universe/p/pycairo/python-cairo_1.16.2-2ubuntu2_amd64.deb
+# sudo alien -d zenmap-7.91-1.noarch.rpm
+# sudo dpkg -i /tmp/safetag-install/*.deb
 
 echo "\e[1;32m-- Instalando Nikto\e[0m"
 cd /home/kali/Desktop/safetag-tools
@@ -57,6 +58,8 @@ sudo pip install raccoon-scanner
 echo "\e[1;32m-- Instalando Droopescan\e[0m"
 cd /home/kali/Desktop/safetag-tools
 git clone https://github.com/droope/droopescan
+cd droopescan
+pip install -r requirements.txt
 
 echo "\e[1;32m-- Instalando Sublist3r\e[0m"
 sudo apt -y install sublist3r
@@ -65,7 +68,7 @@ echo "\e[1;32m-- Instalando ClamAV\e[0m"
 sudo apt -y install clamav clamtk
 
 echo "\e[1;32m-- Instalando Nessus\e[0m"
-echo "\e[1;32m \nDescargar en la pagina que saldra en 20segs la version Nessus-8.12.1-debian6_amd64.deb en la carpeta Downloads (por defecto en Firefox) \n Una vez esté descargado el programa pulsar cualquier tecla para continuar \e[0m"
+echo "\e[1;32m \nDescargar en la pagina que saldra en 20segs la version más actualizada (para la última actualización de este script seria Nessus-10.1.1-debian6_amd64.deb) en la carpeta Downloads (por defecto en Firefox) \n Una vez esté descargado el programa pulsar cualquier tecla para continuar \e[0m"
 sleep 20
 firefox https://www.tenable.com/downloads/nessus?loginAttempted=true 2>/dev/null &
 read hola

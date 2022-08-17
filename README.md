@@ -3,7 +3,7 @@ Script de instalación de herramientas para SAFETAG y guía de uso básico de he
 
 ## Requisitos
 1. Una instancia de Kali Linux activa que use zsh (probado en la versión 2020.4)
-2. Usar el usuario kali que viene por defecto en la instalación limpia (si se usa otro usuario ajustar el script ```install.sh`` acorde a las necesidades)
+2. Usar el usuario kali que viene por defecto en la instalación limpia (si se usa otro usuario ajustar el script `install.sh` acorde a las necesidades)
 
 ## Instalar las herramientas usadas en evaluaciones SAFETAG
 1. Abrir un terminal
